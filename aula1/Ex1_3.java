@@ -33,6 +33,8 @@ public class Ex1_3 {
 				if (numbers.containsKey(aux[0]) && numbers.containsKey(aux[1])) {
 					newFrase += numbers.get(aux[0]) + " " + numbers.get(aux[1]);
 				}
+				else
+					newFrase += aux[0]+"-"+aux[1];
 			}
 			// normal cases as 'twenty'
 			else {
