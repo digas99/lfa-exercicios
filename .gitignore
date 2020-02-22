@@ -1,3 +1,7 @@
 #JAVA
 *.class
 *.jar
+
+#OTHERS
+*.gitignore~
+*..gitignore.un~
