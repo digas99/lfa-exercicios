@@ -1,6 +1,9 @@
 #JAVA
 *.class
 *.jar
+*.java.swp
+*.java.un~
+*.java~
 
 #OTHERS
 *.gitignore~
