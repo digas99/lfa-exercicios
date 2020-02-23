@@ -4,6 +4,7 @@
 *.java.swp
 *.java.un~
 *.java~
+*.java.swo
 
 #OTHERS
 *.gitignore~
