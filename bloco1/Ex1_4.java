@@ -63,19 +63,23 @@ public class Ex1_4 {
 	// um valor ser do tipo log10Int significa que o log10 desse valor dá um número inteiro, o que indica que esse valor é obrigatoriamente do tipo 10, 100 ,1000, 10000, etc...
 	public static boolean islog10Int(int val) {
 		Double n = Math.log10(val);
-		if ((Math.floor(n) == n) && !Double.isInfinite(n))
+		if ((Math.floor(n) == n) && !Double.isInfinite(n) && val != 1) 
 			return true;
 		return false;
 	}
 
-	public static int buildNumber(List<Integer> nmrs) {
-		int current, next=0, finalN=0, mult=1;
+	public static long buildNumber(List<Integer> nmrs) {
+		int current, next=0;
+		long finalN=0, mult=1;
 		boolean lastVal, inMult = false;
-		out.print("[");
+		//out.print("[");
 		for (int i = 0; i < nmrs.size(); i++) {
 			// atribuição de valores às variáveis
 			if (i < nmrs.size()-1)
 				next = nmrs.get(i+1);
+			else
+				// um valor que não seja do tipo log10Int
+				next = 2;
 			current = nmrs.get(i);
 			lastVal = (i == nmrs.size()-1);
 			
@@ -84,7 +88,7 @@ public class Ex1_4 {
 				out.print(current+" ");
 			else
 				out.print(current);
-
+			out.println(current);
 			// sinal entre valores
 			if (!lastVal) {
 				if (islog10Int(next)) 
@@ -95,6 +99,7 @@ public class Ex1_4 {
 
 			// se o valor atual não for do tipo log10Int
 			if (!islog10Int(current)) {
+				out.println("current is not");
 				// caso tenham havido já multiplicações anteriormente
 				if (mult > 1) {
 					finalN += mult;
@@ -108,6 +113,7 @@ public class Ex1_4 {
 				if (islog10Int(next)) {
 						// aplicar a multiplicação e indicar que estamos a fazer multplicações
 						mult *= current;
+						out.println("inMult is true");
 						inMult = true;
 				}
 				// se o seguinte não for do tipo lo10Int
@@ -120,9 +126,12 @@ public class Ex1_4 {
 			if (inMult && islog10Int(current)) {
 				// efetuar a multiplicação
 				mult *= current;
-			}
+
+			// if (lastVal)
+				//	finalN += mult;
+			}			
 		}	
-		out.println("]");
+		//out.println("]");
 		return finalN;
 	}
 }
