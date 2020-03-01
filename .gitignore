@@ -6,6 +6,10 @@
 *.java~
 *.java.swo
 
+#README
+*.md~
+*.md.un~
+
 #OTHERS
 *.gitignore~
 *..gitignore.un~
