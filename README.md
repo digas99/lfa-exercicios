@@ -7,4 +7,4 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 - [Ex 1.3](bloco1/Ex1_3.java)
 - [Ex 1.4](bloco1/Ex1_4.java)
 - [Ex 1.5](bloco1/Ex1_5.java)
-- [Ex 1.6](bloco1/Ex1_6.java) *a) e b)*
+- [Ex 1.6 a) & b)](bloco1/Ex1_6.java) | [Ex 1.6 c)](bloco1/Ex1_6_c.java)
