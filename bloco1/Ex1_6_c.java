@@ -4,13 +4,12 @@ import java.nio.file.*;
 import java.io.*;
 
 public class Ex1_6_c {
-		static HashMap<String, String> dic = new HashMap<>();
+	static HashMap<String, String> dic = new HashMap<>();
 
 	public static void main(String[] args) throws IOException {
 		String dicFile, sentence;
 		String[] files = new String[0];
 		List<String> dicFileContent = new ArrayList<>();
-		List<String> fileContent = new ArrayList<>();
 		Scanner rd = new Scanner(System.in);
 
 		// if there is only one argument, then it must be the dictionary
