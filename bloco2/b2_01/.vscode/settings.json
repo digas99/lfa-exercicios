@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/usr/bin/**/*.jar",
+            "/home/diogo/Desktop/Diogo/Universidade/LFA/Ano2/bloco2/b2_01/**/*.jar",
+            "/usr/local/bin/**/*.jar"
+        ],
+        "exclude": [
+            "HelloMain.jar"
+        ]
+    }
+}
