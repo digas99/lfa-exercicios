@@ -4,7 +4,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class Execute extends HelloBaseVisitor<String> {
 
    @Override public String visitGreetings(HelloParser.GreetingsContext ctx) {
-		System.out.println("Olá "+visit(ctx.name()));
+      System.out.println("Olá "+visit(ctx.name()));
       return null;
    }
 
