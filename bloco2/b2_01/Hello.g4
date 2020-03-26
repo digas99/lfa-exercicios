@@ -1,6 +1,6 @@
 grammar Hello;
 
-prog        :   input+;
+prog    :   input+;
 
 input		:	(greetings | bye) NEWLINE ;
 
