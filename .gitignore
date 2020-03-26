@@ -11,6 +11,9 @@
 .*.[a-z]*~
 *.*.[a-z]*~
 
+#VSCODE
+.vscode
+
 #ANTLR4
 *.interp
 *.tokens
