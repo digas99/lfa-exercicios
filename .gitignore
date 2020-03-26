@@ -16,7 +16,10 @@
 *.tokens
 *BaseListener.java
 *BaseVisitor.java
+*Listener.java
 *Lexer.java
 *Parser.java
 *Visitor.java
+*Main.java
 !MyVisitor.java
+!MyListener.java
