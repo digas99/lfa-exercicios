@@ -11,4 +11,8 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 
 ### [bloco2](/bloco2)- *ANTLR4*
 - [Ex 1.1](bloco2/b2_01)
+  - [Grammar](/bloco2/b2_01/Hello.g4)
+  - [Visitor](/bloco2/b2_01/Execute.java)
 - [Ex 1.2](bloco2/b2_02)
+  - [Grammar](/bloco2/b2_02/SuffixCalculator.g4)
+  - [Visitor](/bloco2/b2_02/MyVisitor.java)
