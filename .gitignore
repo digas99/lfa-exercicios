@@ -1,15 +1,21 @@
 #JAVA
 *.class
 *.jar
-*.java.swp
-*.java.un~
-*.java~
-*.java.swo
 
-#README
-*.md~
-*.md.un~
+#VIM
+*.un~
+*.swp
+*.swo
+.[a-z]*~
+*.[a-z]*~
+.*.[a-z]*~
+*.*.[a-z]*~
 
-#OTHERS
-*.gitignore~
-*..gitignore.un~
+#ANTLR4
+*.interp
+*.tokens
+*BaseListener.java
+*BaseVisitor.java
+*Lexer.java
+*Parser.java
+*Visitor.java
