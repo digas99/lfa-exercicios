@@ -23,6 +23,5 @@
 *Lexer.java
 *Parser.java
 *Visitor.java
-*Main.java
 !MyVisitor.java
 !MyListener.java
