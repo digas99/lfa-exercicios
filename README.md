@@ -22,3 +22,6 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 - [Ex 1.4](bloco2/b2_04)
   - [Grammar](/bloco2/b2_04/NumberFormater.g4)
   - [Listener](/bloco2/b2_04/MyListener.java)
+- [Ex 1.5](bloco2/b2_05)
+  - [Grammar](/bloco2/b2_05/Calculator.g4)
+  - [Visitor](/bloco2/b2_05/MyVisitor.java)
