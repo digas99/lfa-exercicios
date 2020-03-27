@@ -23,8 +23,8 @@ public class MyListener extends JavaBaseListener {
       if (ctx.type() != null)
          type = ctx.type().getText();
 
-      // Usage of getInputStream to get text formation correct, not only the
-      // parameters values (output will be 'String name' instead of 'Stringname')
+      // Usage of getInputStream to get text formatation correct, not only the
+      // parameters values (output will be i.e.:'String name' instead of 'Stringname')
       String params = parser.getTokenStream().getText(ctx.formalParameters());
       System.out.println("\t"+type+" "+ctx.Identifier()+params+";");
    }
