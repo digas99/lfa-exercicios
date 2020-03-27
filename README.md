@@ -9,7 +9,7 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 - [Ex 1.5.java](bloco1/Ex1_5.java)
 - [Ex 1.6.java (a & b)](bloco1/Ex1_6.java) | [Ex 1.6_c.java](bloco1/Ex1_6_c.java)
 
-### [bloco2](/bloco2)- *ANTLR4*
+### [bloco2](/bloco2) - *ANTLR4*
 - [Ex 1.1](bloco2/b2_01)
   - [Grammar](/bloco2/b2_01/Hello.g4)
   - [Visitor](/bloco2/b2_01/Execute.java)
