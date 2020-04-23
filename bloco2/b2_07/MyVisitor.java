@@ -32,7 +32,7 @@ public class MyVisitor extends CalculatorBaseVisitor<String> {
       return ctx.Integer().getText();
    }
 
-   @Override public String visitExprBeginsWith(CalculatorParser.ExprBeginsWithContext ctx) {
+   @Override public String visitExprUnary(CalculatorParser.ExprUnaryContext ctx) {
       return "0 " + visit(ctx.expr()) + " " + ctx.op.getText();
    }
 
