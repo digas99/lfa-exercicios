@@ -9,7 +9,7 @@ stat        :   expr NEWLINE                # StatExpr
 
 assign      :   ID '=' expr ;
 
-expr        :   op=('-'|'+') expr           # ExprBeginsWith
+expr        :   op=('-'|'+') expr           # ExprUnary
             |   expr op=('*'|'/'|'%') expr  # ExprMultDivMod
             |   expr op=('+'|'-') expr      # ExprAddSub
             |   Integer                     # ExprInteger
