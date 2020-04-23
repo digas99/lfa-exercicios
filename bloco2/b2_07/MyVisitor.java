@@ -1,8 +1,5 @@
 public class MyVisitor extends CalculatorBaseVisitor<String> {
 
-   static Stack<String> ops = new Stack<>();
-   static HashMap<String, Integer> variables = new HashMap<>();
-
    @Override public String visitProgram(CalculatorParser.ProgramContext ctx) {
       for (CalculatorParser.StatContext s : ctx.stat()) {
          if (visit(s) != null)
