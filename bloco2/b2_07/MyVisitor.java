@@ -1,8 +1,3 @@
-import java.util.Stack;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-
 public class MyVisitor extends CalculatorBaseVisitor<String> {
 
    static Stack<String> ops = new Stack<>();
