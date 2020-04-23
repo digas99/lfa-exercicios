@@ -9,9 +9,7 @@ public class MyVisitor extends CalculatorBaseVisitor<String> {
    }
 
    @Override public String visitStatExpr(CalculatorParser.StatExprContext ctx) {
-      String exp = visit(ctx.expr());
-      // System.out.println(exp);
-      return exp;
+      return visit(ctx.expr());
    }
    
    @Override public String visitStatAssign(CalculatorParser.StatAssignContext ctx) {
@@ -23,10 +21,7 @@ public class MyVisitor extends CalculatorBaseVisitor<String> {
    }
 
    @Override public String visitExprAddSub(CalculatorParser.ExprAddSubContext ctx) {
-      //ops.push(ctx.op.getText());
-      String exp = visit(ctx.expr(0)) + " " + visit(ctx.expr(1)) + " " + ctx.op.getText();
-      // System.out.print(exp);
-      return exp;
+      return visit(ctx.expr(0)) + " " + visit(ctx.expr(1)) + " " + ctx.op.getText();
    }
 
    @Override public String visitExprParens(CalculatorParser.ExprParensContext ctx) {
