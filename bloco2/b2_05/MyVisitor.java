@@ -45,11 +45,7 @@ public class MyVisitor extends CalculatorBaseVisitor<Integer> {
    @Override public Integer visitExprBeginsWithMinus(CalculatorParser.ExprBeginsWithMinusContext ctx) {
       return -(Integer.parseInt(ctx.Integer().getText()));
    }
-
-   @Override public Integer visitExprBeginsWithPlus(CalculatorParser.ExprBeginsWithPlusContext ctx) {
-      return Integer.parseInt(ctx.Integer().getText());
-   }
-
+   
    @Override public Integer visitStatExpr(CalculatorParser.StatExprContext ctx) {
       System.out.println(visit(ctx.expr()));
       return null;

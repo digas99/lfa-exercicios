@@ -9,17 +9,16 @@ stat        :   expr NEWLINE                # StatExpr
 
 assign      :   ID '=' expr ;
 
-expr        :   expr op=('*'|'/'|'%') expr  # ExprMultDivMod
+expr        :   '-' Integer                 # ExprBeginsWithMinus
+            |   expr op=('*'|'/'|'%') expr  # ExprMultDivMod
             |   expr op=('+'|'-') expr      # ExprAddSub
             |   Integer                     # ExprInteger
             |   '(' expr ')'                # ExprParens
-            |   '-' Integer                 # ExprBeginsWithMinus
-            |   '+' Integer                 # ExprBeginsWithPlus
             |   ID                          # ExprId
             ;
         
 Integer :   [0-9]+ ;
 ID      :   [a-zA-Z_]+ ;
 NEWLINE :   '\r'? '\n' ;
-WS  :   [ \t]+ -> skip ;
 COMMENT :   '#' .*? '\n' -> skip ;
+WS  :   [ \t]+ -> skip ;
