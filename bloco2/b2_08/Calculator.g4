@@ -17,11 +17,12 @@ expr    :   op=('-'|'+') expr           # ExprUnary
         |   '(' expr ')'                # ExprParens
         |   ID                          # ExprId
         |   'reduce' expr               # ExprReduce
-        |   'read' '"' ID+ '"'          # ExprRead
+        |   'read' STRING               # ExprRead
         ;  
 
 frac    :   NUMBER '/' NUMBER;
 
+STRING :   '"' .*? '"';
 NUMBER  :   [0-9]+;
 ID  :   [a-zA-Z0-9]+;
 COMMENT :   '//' .*? '\n' -> skip ;

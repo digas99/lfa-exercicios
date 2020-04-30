@@ -62,10 +62,7 @@ public class MyVisitor extends CalculatorBaseVisitor<String> {
 
    @Override public String visitExprRead(CalculatorParser.ExprReadContext ctx) {
       Scanner rd = new Scanner(System.in);
-      String val="", label="";
-      for (TerminalNode id : ctx.ID()) {
-         label += id.getText() + " ";
-      }
+      String val="", label=ctx.STRING().getText();
       System.out.print(label+": ");
       try {
          val = Integer.toString(rd.nextInt());
