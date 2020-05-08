@@ -46,3 +46,7 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
   - [Grammar](/bloco2/b2_09/Questions.g4)
   - [Visitor](/bloco2/b2_09/MyVisitor.java)
   - [Main](/bloco2/b2_09/QuestionsMain.java)
+- [Ex 2.10](bloco2/b2_10)
+  - [Grammar](/bloco2/b2_10/SetCalculator.g4)
+  - [Visitor](/bloco2/b2_10/MyVisitor.java)
+  - [Main](/bloco2/b2_10/SetCalculatorMain.java)
