@@ -3,7 +3,7 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 
 ## Projeto: [compiler-and-language-for-quizes](https://github.com/digas99/compiler-and-language-for-quizes)
 
-## Guiões:
+## Guiões: 
 ### [bloco1](/bloco1) - *Java*
 - [Ex 1.1.java](bloco1/Ex1_1.java)
 - [Ex 1.2.java](bloco1/Ex1_2.java)
