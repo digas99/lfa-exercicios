@@ -1,13 +1,14 @@
 # lfa-exercicios
 Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
 
-### [bloco1](/bloco1) - *Java*
+### [bloco1](/bloco1) - *Java* (2021)
 - [Ex 1.1.java](bloco1/Ex1_1.java)
 - [Ex 1.2.java](bloco1/Ex1_2.java)
 - [Ex 1.3.java](bloco1/Ex1_3.java)
 - [Ex 1.4.java](bloco1/Ex1_4.java)
 - [Ex 1.5.java](bloco1/Ex1_5.java)
 - [Ex 1.6.java (a & b)](bloco1/Ex1_6.java) | [Ex 1.6_c.java](bloco1/Ex1_6_c.java)
+- [bloco.pdf](bloco1/bloco1.pdf)
 
 ### [bloco2](/bloco2) - *ANTLR4*
 - [Ex 2.1](bloco2/b2_01)

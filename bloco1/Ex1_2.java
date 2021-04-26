@@ -1,83 +1,55 @@
-import java.util.*;
-import static java.lang.System.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Ex1_2 {
-
+	
+	static Map<String, Double> vars = new HashMap<>();
 	public static void main(String[] args) {
-		boolean allNumbers=false;
-		double currentN, last, beforeLast;
-		Stack<Double> stack = new Stack<Double>();
 		Scanner rd = new Scanner(System.in);
-
-		out.print("Insira uma expressão em notação pós-fixa\n('1 2 3 * +' = '1 + 3 * 2')\nExpressão: ");
-		String s = rd.nextLine();
-		String[] vals = s.split(" ");
-		if (isValid(vals)) {
-			for (int i = 0; i < vals.length; i++) {
-				String current = vals[i];
-				if (isNumber(current)) {
-					currentN = Double.parseDouble(current); 
-					stack.push(currentN);
+		String[] expr;
+		int exprSize;
+		Double result, resultToSave;
+		double op2;
+		String operand, expr0;
+		do {
+			result = null;
+			do {
+				expr = rd.nextLine().split(" ");
+				exprSize = expr.length;
+				expr0 = expr[0];
+				if (exprSize == 1) {
+					if (!isNumber(expr0))
+						result = vars.get(expr0);
 				}
 				else {
-					last = stack.pop();
-					beforeLast = stack.pop();
-					stack.push(calc(vals[i], last, beforeLast));
+					operand = expr[1];
+					op2 = valueDecision(expr[2]);
+					if (!operand.equals("="))
+						result = Ex1_1.operate(valueDecision(expr0), operand, op2);
+					else {
+						resultToSave = op2;
+						if (exprSize == 5) {
+							resultToSave = Ex1_1.operate(resultToSave, expr[3], valueDecision(expr[4]));
+						}
+						vars.put(expr0, resultToSave);
+					}
 				}
-				printStack(stack);
-			}	
-		}
+			} while (result == null || exprSize > 5);
+			System.out.println(result);
+		} while(true);
 	}
 
-	public static boolean isValid(String[] arr) {
-		for (String s:arr) {
-			if (!isNumber(s) && !isOperator(s))
-				return false;
-		}
-		return true;
+	private static double valueDecision(String value) {
+		return isNumber(value) ? Double.parseDouble(value) : vars.get(value);
 	}
 
-	public static boolean isNumber(String s) {
+	public static boolean isNumber(String value) {
 		try {
-			Double.parseDouble(s);
+			Double.parseDouble(value);
 		} catch (NumberFormatException e) {
-			return false;	
+			return false;
 		}
 		return true;
-	}
-
-	public static void printStack(Stack stack) {
-		Stack<Double> newStack = (Stack<Double>)stack.clone();
-		Double[] aux = new Double[stack.size()];
-		int ct = 0;
-		while (newStack.size() > 0) {
-			aux[ct] = newStack.pop();
-			ct++;
-		}
-		out.print("Stack: [");
-		for (int i=aux.length-1; i > 0 ; i--) {
-			out.print(aux[i]+", ");
-		}
-		out.println(aux[0]+"]");
-	}
-
-	public static double calc(String op, double a, double b) {
-		switch (op) {
-			case "+":
-				return a+b;
-			case "-":
-				return a-b;
-			case "*":
-				return a*b;
-			case "/":
-				return a/b;
-		}
-		return a+b;
-	}
-
-	public static boolean isOperator(String s) {
-		if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")) 
-			return true;
-		return false;
 	}
 }
