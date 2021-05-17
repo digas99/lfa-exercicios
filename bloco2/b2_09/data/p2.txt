@@ -4,4 +4,3 @@ print 1/4-(1/4);
 4/2 * (-2/3 + 4) - 2 -> x;
 print x;
 print x*x:x+(x)-x;
-print reduce x*x:x+(x)-x;

@@ -1,8 +1,9 @@
+import java.io.IOException;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 public class CalculatorMain {
-   public static void main(String[] args) throws Exception {
+   public static void main(String[] args) throws IOException {
       // create a CharStream that reads from standard input:
       CharStream input = CharStreams.fromStream(System.in);
       // create a lexer that feeds off of input CharStream:
@@ -19,8 +20,9 @@ public class CalculatorMain {
       if (parser.getNumberOfSyntaxErrors() == 0) {
          // print LISP-style tree:
          // System.out.println(tree.toStringTree(parser));
-         MyVisitor visitor0 = new MyVisitor();
-         visitor0.visit(tree);
+
+         Interpreter visitor = new Interpreter();
+         visitor.visit(tree);
       }
    }
 }

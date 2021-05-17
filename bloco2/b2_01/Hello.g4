@@ -1,13 +1,12 @@
 grammar Hello;
 
-prog      :   input+ ;
+prog : ((greetings | bye) NEWLINE)+ ;
 
-input     :	(greetings | bye) NEWLINE ;
+greetings	: 'hello' name ;
+bye			: 'bye' name ;
 
-greetings :	'hello' name ;
-bye       :	'bye' name ;
-name      :	ID+ ;
+name	: ID+ ;
 
-ID  :	[a-zA-Z]+ ;
-NEWLINE :   '\r'? '\n' ;
-WS  :   [ \t]+ -> skip ;
+ID	: [a-zA-Z]+ ;
+NEWLINE	: '\r'? '\n' ;
+WS	: [ \t\r\n]+ -> skip ;

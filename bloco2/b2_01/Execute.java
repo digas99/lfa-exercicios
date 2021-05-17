@@ -1,7 +1,11 @@
-import java.util.Iterator;
+import java.util.stream.Collectors;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class Execute extends HelloBaseVisitor<String> {
+
+   @Override public String visitProg(HelloParser.ProgContext ctx) {
+      return visitChildren(ctx);
+   }
 
    @Override public String visitGreetings(HelloParser.GreetingsContext ctx) {
       System.out.println("Olá "+visit(ctx.name()));
@@ -14,14 +18,8 @@ public class Execute extends HelloBaseVisitor<String> {
    }
 
    @Override public String visitName(HelloParser.NameContext ctx) {
-      Iterator<TerminalNode> iter = ctx.ID().iterator();
-
-      String res = "";
-
-      while (iter.hasNext()) {
-         res += iter.next().getText() + " ";
-      }
-
-      return res.trim();
+      return ctx.ID().stream()
+               .map(id -> id.getText())
+               .collect(Collectors.joining(" "));
    }
 }

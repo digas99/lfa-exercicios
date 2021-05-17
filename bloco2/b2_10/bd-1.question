@@ -1,5 +1,5 @@
 # ANTLR:
-antlr.1("O ANTLR4 permite...") {
+antlr.P1("O ANTLR4 permite...") {
   "construir um interpretador para uma linguagem":100;
   "construir um compilador para uma linguagem":100;
   "paralelizar um programa":0;
@@ -9,8 +9,8 @@ antlr.1("O ANTLR4 permite...") {
   "verificar se um programa está correcto":0;
 }
 
-# Animais:
-animais.1("Um gato é...") {
+# Outras áreas:
+outro.P1("Um gato é...") {
   "um insecto":0;
   "um mamífero":100;
   "o melhor amigo do Homem":0;
@@ -18,13 +18,11 @@ animais.1("Um gato é...") {
   "um peixe":0;
 }
 
-animais.2("Normalmente, um cão tem...") {
-  "5 patas":0;
-  "4 patas":100;
-  "asas":0;
-  "menos anos de vida do que um ser humano":100;
-  "2 patas":0;
-  "coleira, se for domesticado":100;
-  "2 caudas":0;
-  "o poder de falar":0;
+q1.COLORS("O que é azul com verde") {
+  "preto":0;
+  "amarelo":0;
+  "roxo":100;
+  "branco":0;
+  "impossível":0;
+  "roxo outra vex":100;
 }

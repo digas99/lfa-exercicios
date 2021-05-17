@@ -1,10 +1,10 @@
-grammar SuffixCalculator ;
+grammar PrefixCalculator ;
 
 program	: stat* EOF ;
 
 stat	: expr? NEWLINE ;
 
-expr	: expr expr op =('*'|'/'|'+'|'-')	#ExpSuffix
+expr	: op =('*'|'/'|'+'|'-') expr expr	#ExpPrefix
 		| Number							#ExprNumber
 		;
 

@@ -1,27 +1,28 @@
+import java.io.IOException;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
-public class NumbersFormaterMain {
-   public static void main(String[] args) throws Exception {
+public class SuffixCalculatorMain {
+   public static void main(String[] args) throws IOException {
       // create a CharStream that reads from standard input:
       CharStream input = CharStreams.fromStream(System.in);
       // create a lexer that feeds off of input CharStream:
-      NumbersFormaterLexer lexer = new NumbersFormaterLexer(input);
+      SuffixCalculatorLexer lexer = new SuffixCalculatorLexer(input);
       // create a buffer of tokens pulled from the lexer:
       CommonTokenStream tokens = new CommonTokenStream(lexer);
       // create a parser that feeds off the tokens buffer:
-      NumbersFormaterParser parser = new NumbersFormaterParser(tokens);
+      SuffixCalculatorParser parser = new SuffixCalculatorParser(tokens);
       // replace error listener:
       //parser.removeErrorListeners(); // remove ConsoleErrorListener
       //parser.addErrorListener(new ErrorHandlingListener());
-      // begin parsing at prog rule:
-      ParseTree tree = parser.prog();
+      // begin parsing at program rule:
+      ParseTree tree = parser.program();
       if (parser.getNumberOfSyntaxErrors() == 0) {
          // print LISP-style tree:
          // System.out.println(tree.toStringTree(parser));
-         ParseTreeWalker walker = new ParseTreeWalker();
-         MyListener listener0 = new MyListener();
-         walker.walk(listener0, tree);
+         Interpreter visitor = new Interpreter();
+         visitor.visit(tree);
       }
+
    }
 }

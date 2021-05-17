@@ -1,18 +1,17 @@
 grammar Calculator;
 
-program     :   stat* EOF ;
+program	: stat* EOF ;
 
-stat        :   expr? NEWLINE ;
+stat	: expr? NEWLINE ;
 
-expr        :   expr op=('*'|'/'|'%') expr  # ExprMultDivMod
-            |   expr op=('+'|'-') expr      # ExprAddSub
-            |   Integer                     # ExprInteger
-            |   '(' expr ')'                # ExprParens
-            |   '-' Integer                 # ExprBeginsWithMinus
-            |   '+' Integer                 # ExprBeginsWithPlus
-            ;
-        
-Integer :   [0-9]+ ;
-NEWLINE :   '\r'? '\n' ;
-WS  :   [ \t]+ -> skip ;
-COMMENT :   '#' .*? '\n' -> skip ;
+expr	: expr op=('*'|'/'|'%') expr	#ExprMultDivMod
+		| expr op=('+'|'-') expr		#ExprAddSub
+		| Integer						#ExprInteger
+		| '(' expr ')'					#ExprParent
+		| value=('+'|'-') Integer		#ExprUnary
+		;
+	
+Integer	: [0-9]+;
+NEWLINE : '\r'? '\n';
+WS	: [ \t]+ -> skip;
+COMMENT: '#' .*? '\n' -> skip;
