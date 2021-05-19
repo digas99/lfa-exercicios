@@ -28,7 +28,6 @@ public class QuestionsMain {
          // begin parsing at program rule:
          ParseTree tree = parser.program();
          if (parser.getNumberOfSyntaxErrors() == 0) {
-            String[] alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "k", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
             MyVisitor visitor = new MyVisitor();
             visitor.visit(tree);
@@ -41,23 +40,20 @@ public class QuestionsMain {
 
             List<Pair<String, Integer>> correctAnswers = question.stream().filter(ans -> ans.b == 100).collect(Collectors.toList());
             List<Pair<String, Integer>> wrongAnswers = question.stream().filter(ans -> ans.b == 0).collect(Collectors.toList());
+            List<Pair<String,Integer>> finalAnswers = new ArrayList<>();
+            finalAnswers.add(correctAnswers.get(rand(0, correctAnswers.size())));
             Collections.shuffle(wrongAnswers);
 
-            int numAnswers = Integer.parseInt(args[2]);
-            int posCorrectAnswer = rand(0, numAnswers);
-            for (int i = 0; i < numAnswers; i++) {
-               String alinea = alphabet[i]+") ";
-               if (i == posCorrectAnswer)
-                  System.out.println(alinea+correctAnswers.get(rand(0, correctAnswers.size())).a);
-               else
-                  System.out.println(alinea+wrongAnswers.get(i).a);
+            for (int i = 0; i < Integer.parseInt(args[2])-1; i++) {
+               finalAnswers.add(wrongAnswers.get(i));
             }
-            // for (int i = 0; i < Integer.parseInt(args[2]); i++) {
-            //    int index = rand(0, wrongAnswers.size()); 
-            //    wantedAnswers.add(wrongAnswers.get(index));
-            //    wrongAnswers.remove(index);
-            // }            
-           
+            
+            Collections.shuffle(finalAnswers);
+
+            char index = 97;
+            for (Pair<String,Integer> ans : finalAnswers) {
+               System.out.println((index++)+") "+ans.a);   
+            }
          }
       }
       catch(IOException e) {
