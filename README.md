@@ -53,3 +53,7 @@ Exercícios dos guiões da cadeira de Linguagens Formais e Autómatos
   - [Grammar](/bloco2/b2_10/Questions.g4)
   - [Visitor](/bloco2/b2_10/MyVisitor.java)
   - [Main](/bloco2/b2_10/QuestionsMain.java)
+
+### [string_template](/string_template) - *ST*
+- [Exemplo](/string_template/exemplo-slides)
+- [Ex 2.08](/string_tempate/b2_08)

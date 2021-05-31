@@ -1,0 +1,145 @@
+module(name, stat) ::= <<
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class <name> {
+    static HashMap\<String, String> vars = new HashMap\<>();
+
+    public static void main(String[] args) {
+        <stats(stat)>
+    }
+
+    public static String operateFracs(String f1, String f2, String op) {
+        String[] x =  makeFrac(f1).split("/");
+        String[] y =  makeFrac(f2).split("/");
+
+        int numerator = 0;
+        int denominator = 0;
+        switch(op) {
+            case "+":
+                numerator = Integer.parseInt(x[0])*Integer.parseInt(y[1]) + Integer.parseInt(y[0])*Integer.parseInt(x[1]);
+                denominator = Integer.parseInt(x[1]) * Integer.parseInt(y[1]);
+                break;
+            case "-":
+                numerator = Integer.parseInt(x[0])*Integer.parseInt(y[1]) - Integer.parseInt(y[0])*Integer.parseInt(x[1]);
+                denominator = Integer.parseInt(x[1]) * Integer.parseInt(y[1]);
+                break;
+            case "*":
+                numerator = Integer.parseInt(x[0]) * Integer.parseInt(y[0]);
+                denominator = Integer.parseInt(x[1]) * Integer.parseInt(y[1]);
+                break;
+            case ":":
+                numerator = Integer.parseInt(x[0]) * Integer.parseInt(y[1]);
+                denominator = Integer.parseInt(x[1]) * Integer.parseInt(y[0]);
+                break;
+        }
+        return numerator + "/" + denominator;
+    }
+
+    public static String powFrac(String f1, String pow) {
+        String digits[] = makeFrac(f1).split("/");
+        int res;
+        if (isDigit(pow)) {
+            switch(pow.charAt(0)) {
+                case '-':
+                res = Integer.parseInt(pow.substring(1));
+                return ((int) Math.pow(Integer.parseInt(digits[1]), res)) + "/" + ((int) Math.pow(Integer.parseInt(digits[0]), res));
+                default:
+                res = Integer.parseInt(pow);
+                return ((int) Math.pow(Integer.parseInt(digits[0]), res)) + "/" + ((int) Math.pow(Integer.parseInt(digits[1]), res));  
+            }
+        }
+        return null;
+    }
+
+    private static String makeFrac(String num) {
+        String[] digits = num.split("/");
+        if (digits.length == 1) {
+            return digits[0] + "/1";
+        }
+        return num;
+    }
+
+    private static boolean isDigit(String n) {
+        try {
+            Integer.parseInt(n);
+        }
+        catch(NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
+    private static int gcd(String frac) {
+        String[] digits = makeFrac(frac).split("/");
+        int a, b;
+        try {
+            a = Integer.parseInt(digits[0]);
+            b = Integer.parseInt(digits[1]);
+        }
+        catch(NumberFormatException e) {
+            System.out.println("Expected number to reduce!");
+            return 0;
+        }
+        return gcd(a, b);
+    }
+
+    private static int gcd(int a, int b) {
+        while (b != 0) {
+            int tmp = b;
+            b = a % b;
+            a = tmp;
+        }
+        return a;
+    }
+}
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+print(text, stat) ::= <<
+<stats(stat)>
+System.out.println(<text>);
+>>
+
+temp_declaration(type, var, value) ::= "<type> <var><if(value)> = <value>;<endif>"
+
+string_temp_declaration_literal(var, value) ::= <<String <var> = "<value>";>>
+string_temp_declaration(var, value) ::= <<String <var> = <value>;>>
+
+val_atrib(var, value) ::= <<<var> = <value>;>>
+val_atrib_literal(var, value) ::= <<<var> = "<value>";>>
+
+declaration(id, value, stat) ::= <<
+<stats(stat)>
+vars.put("<id>", <value>);
+>>
+
+get_from_map(id, var) ::= <<
+String <var> = vars.containsKey("<id>") ? vars.get("<id>") : "Variable <id> might have not been initialized!";
+>>
+
+binary_operation(stat, type, var, e1, op, e2) ::= <<
+<stats(stat)>
+<temp_declaration(type, var, ["operateFracs(", e1, ", ", e2, ", ", ["\"", op ,"\""], ")"])>
+>>
+
+pow_operation(stat, type, var, e, pow) ::= <<
+<stats(stat)>
+<temp_declaration(type, var, ["powFrac(", e, ", ", pow, ")"])>
+>>
+
+read(var, label, source) ::= <<
+Scanner rd = new Scanner(<source>);
+<string_temp_declaration_literal(var, "")>
+System.out.print(<label>+": ");
+try {
+    <val_atrib(var, "Integer.toString(rd.nextInt())")>
+}
+catch(InputMismatchException e) {
+    System.out.println("Expected number on read!");
+}
+>>
